@@ -1,8 +1,8 @@
 ﻿using SampleBioinformatics.Interface;
 
-namespace SampleBioinformatics.BusinessLogic
+namespace SampleBioinformatics.UnitTests
 {
-    public class Logic : ISampleBioinformatics
+    public class MockSampleBioinformaticsLogic : ISampleBioinformatics
     {
         public string ReturnSuccess()
         {

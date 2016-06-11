@@ -12,6 +12,7 @@
         $stateProvider.state("bio", {
             url: "/",
             controller: "index",
+            controllerAs: "index",
             templateUrl: "/app/templates/_index.html"
         });
     }

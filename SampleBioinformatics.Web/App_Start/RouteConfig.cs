@@ -13,8 +13,8 @@ namespace SampleBioinformatics.Web
             // Web API routes
             routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}",
-                defaults: new { action = "Post" }
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { action = "Post", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

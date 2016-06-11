@@ -19,6 +19,12 @@ namespace SampleBioinformatics.IntegrationTests
             _driver.Manage().Window.Maximize();
         }
 
+        [TearDown]
+        protected void TearDown()
+        {
+            _driver.Quit();
+        }
+
         [Test, Category("integration")]
         public void PageHeaderExists()
         {
@@ -26,10 +32,14 @@ namespace SampleBioinformatics.IntegrationTests
             Assert.AreEqual("Sample Bioinformatics Home Page", header.Text);
         }
 
-        [TearDown]
-        protected void TearDown()
+        [Test, Category("integration")]
+        public void SuccessButtonDisplaysSuccess()
         {
-            _driver.Quit();
+            var successButton = _driver.FindElement(By.Id("success"));
+            successButton.Click();
+            var response = _driver.FindElement(By.Id("response"));
+
+            Assert.AreEqual("Success", response.Text);
         }
     }
 }
