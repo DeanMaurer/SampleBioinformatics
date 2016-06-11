@@ -105,7 +105,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleBioinformatics\SampleBioinformatics.Web.csproj">
+    <ProjectReference Include="..\SampleBioinformatics.Web\SampleBioinformatics.Web.csproj">
       <Project>{0F718D00-6B93-4F4C-A709-B6C2A1FD6BF1}</Project>
       <Name>SampleBioinformatics.Web</Name>
     </ProjectReference>
