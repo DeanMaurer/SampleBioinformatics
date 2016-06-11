@@ -228,7 +228,12 @@
     </Content>
     <Content Include="Views\Shared\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SampleBioinformatics.Interface\SampleBioinformatics.Interface.csproj">
+      <Project>{fd9b92b6-f7af-4a11-a6e1-d3a17dd76471}</Project>
+      <Name>SampleBioinformatics.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
