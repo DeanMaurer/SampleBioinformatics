@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Chrome;
 
 namespace SampleBioinformatics.IntegrationTests
@@ -35,11 +36,16 @@ namespace SampleBioinformatics.IntegrationTests
         [Test, Category("integration")]
         public void SuccessButtonDisplaysSuccess()
         {
+            string expectedResponse = "Success";
             var successButton = _driver.FindElement(By.Id("success"));
             successButton.Click();
+
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            wait.Until(drv => drv.FindElement(By.Id("response")).Text == expectedResponse);
+
             var response = _driver.FindElement(By.Id("response"));
 
-            Assert.AreEqual("Success", response.Text);
+            Assert.AreEqual(expectedResponse, response.Text);
         }
     }
 }
