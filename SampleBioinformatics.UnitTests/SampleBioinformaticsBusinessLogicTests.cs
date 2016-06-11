@@ -24,7 +24,7 @@ namespace SampleBioinformatics.UnitTests
             Assert.AreEqual("", result.DNA);
             Assert.AreEqual("", result.mRNA);
             Assert.AreEqual("", result.tRNA);
-            Assert.AreEqual(new List<string>(), result.Proteins);
+            Assert.AreEqual(new List<string>(), result.AminoAcids);
         }
     }
 }

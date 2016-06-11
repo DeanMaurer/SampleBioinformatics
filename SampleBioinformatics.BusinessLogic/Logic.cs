@@ -14,8 +14,8 @@ namespace SampleBioinformatics.BusinessLogic
         {
             string mRNA = "";
             string tRNA = "";
-            List<string> Proteins = new List<string>();
-            return new DecodedDNA(DNA, mRNA, tRNA, Proteins);
+            List<string> AminoAcids = new List<string>();
+            return new DecodedDNA(DNA, mRNA, tRNA, AminoAcids);
         }
     }
 }

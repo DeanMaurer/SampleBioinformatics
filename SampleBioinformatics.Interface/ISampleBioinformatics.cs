@@ -14,14 +14,14 @@ namespace SampleBioinformatics.Interface
         public string DNA { get; private set; }
         public string mRNA { get; private set; }
         public string tRNA { get; private set; }
-        public List<string> Proteins { get; private set; }
+        public List<string> AminoAcids { get; private set; }
 
-        public DecodedDNA(string DNA, string mRNA, string tRNA, List<string> Proteins)
+        public DecodedDNA(string DNA, string mRNA, string tRNA, List<string> AminoAcids)
         {
             this.DNA = DNA;
             this.mRNA = mRNA;
             this.tRNA = tRNA;
-            this.Proteins = Proteins;
+            this.AminoAcids = AminoAcids;
         }
     }
 }
