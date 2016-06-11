@@ -14,7 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BA239A25-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBioinformatics.Web", "SampleBioinformatics\SampleBioinformatics.Web.csproj", "{0F718D00-6B93-4F4C-A709-B6C2A1FD6BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBioinformatics.Tests", "SampleBioinformatics.Tests\SampleBioinformatics.Tests.csproj", "{A7432C2D-043B-43F2-BE5B-0E95CE49DC29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBioinformatics.UnitTests", "SampleBioinformatics.Tests\SampleBioinformatics.UnitTests.csproj", "{A7432C2D-043B-43F2-BE5B-0E95CE49DC29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{1C0F701E-F366-4AEF-BEAB-53CF03CA2D3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{531A6ED7-EB57-41EE-B70D-77E0094966E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBioinformatics.IntegrationTests", "SampleBioinformatics.IntegrationTests\SampleBioinformatics.IntegrationTests.csproj", "{97973F42-398F-45B3-B425-6C671D6692E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,12 +36,19 @@ Global
 		{A7432C2D-043B-43F2-BE5B-0E95CE49DC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7432C2D-043B-43F2-BE5B-0E95CE49DC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7432C2D-043B-43F2-BE5B-0E95CE49DC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97973F42-398F-45B3-B425-6C671D6692E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97973F42-398F-45B3-B425-6C671D6692E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97973F42-398F-45B3-B425-6C671D6692E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97973F42-398F-45B3-B425-6C671D6692E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0F718D00-6B93-4F4C-A709-B6C2A1FD6BF1} = {447E3721-BC28-47BA-BD1D-0E10A15417E0}
-		{A7432C2D-043B-43F2-BE5B-0E95CE49DC29} = {BA239A25-47BB-4B9D-B5A6-02761FD553CF}
+		{A7432C2D-043B-43F2-BE5B-0E95CE49DC29} = {1C0F701E-F366-4AEF-BEAB-53CF03CA2D3F}
+		{1C0F701E-F366-4AEF-BEAB-53CF03CA2D3F} = {BA239A25-47BB-4B9D-B5A6-02761FD553CF}
+		{531A6ED7-EB57-41EE-B70D-77E0094966E9} = {BA239A25-47BB-4B9D-B5A6-02761FD553CF}
+		{97973F42-398F-45B3-B425-6C671D6692E7} = {531A6ED7-EB57-41EE-B70D-77E0094966E9}
 	EndGlobalSection
 EndGlobal

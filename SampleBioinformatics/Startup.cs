@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(SampleBioinformatics.Startup))]
+[assembly: OwinStartup(typeof(SampleBioinformatics.Web.Startup))]
 
-namespace SampleBioinformatics
+namespace SampleBioinformatics.Web
 {
     public partial class Startup
     {

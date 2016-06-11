@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace SampleBioinformatics.Tests
+namespace SampleBioinformatics.UnitTests
 {
     [TestFixture]
-    class SampleBioinformaticsTests
+    class SampleBioinformaticsUnitTests
     {
         [Test]
         public void AlwaysPass()

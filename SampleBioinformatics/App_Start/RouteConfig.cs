@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace SampleBioinformatics
+namespace SampleBioinformatics.Web
 {
     public class RouteConfig
     {

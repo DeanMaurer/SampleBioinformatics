@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Optimization;
 
-namespace SampleBioinformatics
+namespace SampleBioinformatics.Web
 {
     public class BundleConfig
     {
