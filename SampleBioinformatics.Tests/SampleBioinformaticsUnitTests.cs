@@ -10,7 +10,7 @@ namespace SampleBioinformatics.UnitTests
     [TestFixture]
     class SampleBioinformaticsUnitTests
     {
-        [Test]
+        [Test, Category("unit")]
         public void AlwaysPass()
         {
             Assert.IsTrue(true);

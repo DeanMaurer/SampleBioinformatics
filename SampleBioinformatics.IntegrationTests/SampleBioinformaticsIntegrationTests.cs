@@ -19,7 +19,7 @@ namespace SampleBioinformatics.IntegrationTests
             _driver.Manage().Window.Maximize();
         }
 
-        [Test]
+        [Test, Category("integration")]
         public void PageHeaderExists()
         {
             var header = _driver.FindElement(By.TagName("h2"));
