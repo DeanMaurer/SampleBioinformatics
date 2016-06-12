@@ -17,6 +17,7 @@ namespace SampleBioinformatics.IntegrationTests
         {
             _driver = new ChromeDriver();
             _driver.Url = _url;
+            _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
             _driver.Manage().Window.Maximize();
         }
 
