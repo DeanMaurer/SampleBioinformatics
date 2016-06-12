@@ -17,7 +17,9 @@ describe("UI", function () {
 
     beforeEach(inject(function ($injector) {
         $httpBackend = $injector.get("$httpBackend");
-        requestHandler = $httpBackend.when("GET", "/api/SampleBioinformatics/GetDNADecoded?DNA=AAA")
+        requestHandler = $httpBackend.when("GET", function (url) {
+            return url.indexOf("/api/SampleBioinformatics/GetDNADecoded") === 0;
+        })
     }));
 
     afterEach(function () {
@@ -32,6 +34,9 @@ describe("UI", function () {
         index.decodeDNA();
         $httpBackend.flush();
         expect(index.decodedInfo).toEqual(Object({ DNA: 'AAA', mRNA: 'UUU', tRNA: 'AAA', AminoAcids: ['Lysine'] }));
+        expect(index.mRNA).toEqual("UUU");
+        expect(index.tRNA).toEqual("AAA");
+        expect(index.aminoAcids).toEqual(["Lysine"]);
 
     }));
 });
