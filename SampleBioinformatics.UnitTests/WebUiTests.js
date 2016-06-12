@@ -33,10 +33,21 @@ describe("UI", function () {
         index.dna = "AAA";
         index.decodeDNA();
         $httpBackend.flush();
-        expect(index.decodedInfo).toEqual(Object({ DNA: "AAA", mRNA: "UUU", tRNA: "AAA", AminoAcids: ["Lysine"] }));
         expect(index.mRNA).toEqual("UUU");
         expect(index.tRNA).toEqual("AAA");
         expect(index.aminoAcids).toEqual(["Lysine"]);
 
+    }));
+
+    it("should show the results only when they exist", inject(function () {
+        requestHandler.respond(200, Object({ DNA: "AAA", mRNA: "UUU", tRNA: "AAA", AminoAcids: ["Lysine"] }));
+
+        expect(index.showResults).toEqual(false);
+
+        index.dna = "AAA";
+        index.decodeDNA();
+        $httpBackend.flush();
+
+        expect(index.showResults).toEqual(true);
     }));
 });

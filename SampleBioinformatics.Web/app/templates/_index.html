@@ -2,8 +2,15 @@
     <h2 id="title">Sample Bioinformatics Home Page</h2>
     <p>DNA: <input type="text" name="DNA" ng-model="index.dna" /></p>
     <button ng-click="index.decodeDNA()" type="submit" class="btn" id="decodeBtn">Click to Decode DNA</button>
-    <p id="decodedInfo">{{index.decodedInfo}}</p>
-    <p id="mRNA">{{index.mRNA}}</p>
-    <p id="tRNA">{{index.tRNA}}</p>
-    <p id="aminoAcids">{{index.aminoAcids}}</p>
+
+    <div id="results" ng-show="index.showResults">
+        <div id="mRNA">mRNA: {{index.mRNA}}</div>
+        <div id="tRNA">tRNA: {{index.tRNA}}</div>
+        <div id="aminoAcids">
+            <p>Amino Acids:</p>
+            <ul>
+                <li id="acid" ng-repeat="acid in index.aminoAcids">{{acid}}</li>
+            </ul>
+        </div>
+    </div>
 </div>

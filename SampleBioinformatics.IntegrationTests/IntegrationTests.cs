@@ -7,7 +7,7 @@ using OpenQA.Selenium.Chrome;
 namespace SampleBioinformatics.IntegrationTests
 {
 
-    public class SampleBioinformaticsIntegrationTests
+    public class IntegrationTests
     {
         private IWebDriver _driver;
         private string _url = "http://samplebioinformatics20160605063635.azurewebsites.net/";
@@ -37,20 +37,30 @@ namespace SampleBioinformatics.IntegrationTests
         [Test, Category("integration")]
         public void DecodedStringAAADisplaysAsExpected()
         {
-            string expectedResponse = "{\"DNA\":\"AAA\",\"mRNA\":\"UUU\",\"tRNA\":\"AAA\",\"AminoAcids\":[\"Lysine\"]}";
+            string mRNAExpected = "mRNA: UUU";
+            string tRNAExpected = "tRNA: AAA";
+            string aminoAcidExpected = "Lysine";
 
+            // Enter a DNA string
             var dnaTextBox = _driver.FindElement(By.Name("DNA"));
             dnaTextBox.SendKeys("AAA");
 
+            // Submit the query
             var decodeButton = _driver.FindElement(By.Id("decodeBtn"));
             decodeButton.Click();
 
+            // Wait for a response
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
-            wait.Until(drv => drv.FindElement(By.Id("decodedInfo")).Text == expectedResponse);
+            wait.Until(drv => drv.FindElement(By.Id("mRNA")).Text != "");
 
-            var response = _driver.FindElement(By.Id("decodedInfo"));
+            // Parse the response
+            var mRNAResponse = _driver.FindElement(By.Id("mRNA"));
+            var tRNAResponse = _driver.FindElement(By.Id("tRNA"));
+            var aminoAcidResponse = _driver.FindElement(By.Id("acid"));
 
-            Assert.AreEqual(expectedResponse, response.Text);
+            Assert.AreEqual(mRNAExpected, mRNAResponse.Text);
+            Assert.AreEqual(tRNAExpected, tRNAResponse.Text);
+            Assert.AreEqual(aminoAcidExpected, aminoAcidResponse.Text);
         }
     }
 }
