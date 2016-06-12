@@ -58,5 +58,19 @@ namespace SampleBioinformatics.UnitTests
             Assert.AreEqual("AAG", result.tRNA);
             Assert.AreEqual(expectedAminoAcids, result.AminoAcids);
         }
+
+        [Test, Category("unit")]
+        public void CanDecodeAACAsparagine()
+        {
+            var result = _sbLogic.DecodeDNA("AAC");
+
+            var expectedAminoAcids = new List<string>();
+            expectedAminoAcids.Add("Asparagine");
+
+            Assert.AreEqual("AAC", result.DNA);
+            Assert.AreEqual("UUG", result.mRNA);
+            Assert.AreEqual("AAC", result.tRNA);
+            Assert.AreEqual(expectedAminoAcids, result.AminoAcids);
+        }
     }
 }

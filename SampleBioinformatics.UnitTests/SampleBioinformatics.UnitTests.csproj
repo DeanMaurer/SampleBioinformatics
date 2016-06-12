@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AminoAcidEncodingTests.cs" />
     <Compile Include="MockSampleBioinformaticsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleBioinformaticsBusinessLogicTests.cs" />
