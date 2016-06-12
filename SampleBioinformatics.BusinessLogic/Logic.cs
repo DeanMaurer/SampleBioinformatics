@@ -13,6 +13,7 @@ namespace SampleBioinformatics.BusinessLogic
 
         public DecodedDNA DecodeDNA(string DNA)
         {
+            DNA = DNA.ToUpper();
             string mRNA = GetmRNAFromDNA(DNA);
             string tRNA = GettRNAFromDNA(DNA);
             List<string> AminoAcids = new List<string>();
