@@ -44,7 +44,7 @@ namespace SampleBioinformatics.IntegrationTests
             var decodeButton = _driver.FindElement(By.Id("decodeBtn"));
             decodeButton.Click();
 
-            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
             wait.Until(drv => drv.FindElement(By.Id("decodedInfo")).Text == expectedResponse);
 
             var response = _driver.FindElement(By.Id("decodedInfo"));
