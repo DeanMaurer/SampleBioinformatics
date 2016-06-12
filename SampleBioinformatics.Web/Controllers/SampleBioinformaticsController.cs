@@ -2,6 +2,7 @@
 using SampleBioinformatics.BusinessLogic;
 using SampleBioinformatics.Interface;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace SampleBioinformatics.Web.Controllers
 {
@@ -24,16 +25,16 @@ namespace SampleBioinformatics.Web.Controllers
             _sBio = sBio;
         }
 
-        public string GetDNADecoded(string DNA)
+        public JObject GetDNADecoded(string DNA)
         {
             try
             {
                 var decodedDNA = _sBio.DecodeDNA(DNA);
-                return JsonConvert.SerializeObject(decodedDNA);
+                return JObject.Parse(JsonConvert.SerializeObject(decodedDNA));
             }
             catch(InvalidDNAException)
             {
-                return JsonConvert.SerializeObject(new { Error = "The DNA provided is not valid." });
+                return JObject.Parse(JsonConvert.SerializeObject(new { Error = "The DNA provided is not valid." }));
             }
         }
     }

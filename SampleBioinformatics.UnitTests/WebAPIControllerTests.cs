@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using SampleBioinformatics.Web.Controllers;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace SampleBioinformatics.UnitTests
 
             var aminoAcids = new List<string>();
             aminoAcids.Add("Lysine");
-            var expectedJson = JsonConvert.SerializeObject(new { DNA = "AAA", mRNA = "UUU", tRNA = "AAA", AminoAcids = aminoAcids });
+            var expectedJson = JObject.Parse(JsonConvert.SerializeObject(new { DNA = "AAA", mRNA = "UUU", tRNA = "AAA", AminoAcids = aminoAcids }));
 
             Assert.AreEqual(expectedJson, result);
         }
@@ -28,7 +29,7 @@ namespace SampleBioinformatics.UnitTests
 
             var result = exceptionController.GetDNADecoded("AAA");
 
-            var expectedJson = JsonConvert.SerializeObject(new { Error = "The DNA provided is not valid." });
+            var expectedJson = JObject.Parse(JsonConvert.SerializeObject(new { Error = "The DNA provided is not valid." }));
 
             Assert.AreEqual(expectedJson, result);
         }

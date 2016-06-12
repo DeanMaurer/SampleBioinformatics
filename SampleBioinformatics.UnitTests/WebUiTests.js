@@ -28,12 +28,12 @@ describe("UI", function () {
     });
 
     it("should handle API repsponse correctly", inject(function () {
-        requestHandler.respond(200, "{\"DNA\":\"AAA\",\"mRNA\":\"UUU\",\"tRNA\":\"AAA\",\"AminoAcids\":[\"Lysine\"]}");
+        requestHandler.respond(200, Object({ DNA: "AAA", mRNA: "UUU", tRNA: "AAA", AminoAcids: ["Lysine"] }));
 
         index.dna = "AAA";
         index.decodeDNA();
         $httpBackend.flush();
-        expect(index.decodedInfo).toEqual(Object({ DNA: 'AAA', mRNA: 'UUU', tRNA: 'AAA', AminoAcids: ['Lysine'] }));
+        expect(index.decodedInfo).toEqual(Object({ DNA: "AAA", mRNA: "UUU", tRNA: "AAA", AminoAcids: ["Lysine"] }));
         expect(index.mRNA).toEqual("UUU");
         expect(index.tRNA).toEqual("AAA");
         expect(index.aminoAcids).toEqual(["Lysine"]);
