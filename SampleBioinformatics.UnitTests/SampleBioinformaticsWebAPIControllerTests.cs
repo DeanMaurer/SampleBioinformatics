@@ -28,5 +28,17 @@ namespace SampleBioinformatics.UnitTests
 
             Assert.AreEqual(expectedJson, result);
         }
+
+        [Test, Category("unit")]
+        public void PresentsUsefulMessageWhenDNAIsInvalid()
+        {
+            var exceptionController = new SampleBioinformaticsController(new MockSampleBioinformaticsLogicThrowsInvalidDNAException());
+
+            var result = exceptionController.GetDNADecoded("AAA");
+
+            var expectedJson = JsonConvert.SerializeObject(new { Error = "The DNA provided is not valid." });
+
+            Assert.AreEqual(expectedJson, result);
+        }
     }
 }

@@ -26,14 +26,20 @@ namespace SampleBioinformatics.Web.Controllers
 
         public string GetSuccess()
         {
-            this.ToString();
             return _sBio.ReturnSuccess();
         }
 
         public string GetDNADecoded(string DNA)
         {
-            var decodedDNA = _sBio.DecodeDNA(DNA);
-            return JsonConvert.SerializeObject(decodedDNA);
+            try
+            {
+                var decodedDNA = _sBio.DecodeDNA(DNA);
+                return JsonConvert.SerializeObject(decodedDNA);
+            }
+            catch(InvalidDNAException)
+            {
+                return JsonConvert.SerializeObject(new { Error = "The DNA provided is not valid." });
+            }
         }
     }
 }

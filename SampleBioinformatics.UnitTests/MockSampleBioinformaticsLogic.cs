@@ -17,4 +17,17 @@ namespace SampleBioinformatics.UnitTests
             return new DecodedDNA("AAA", "UUU", "AAA", aminoAcids);
         }
     }
+
+    public class MockSampleBioinformaticsLogicThrowsInvalidDNAException : ISampleBioinformatics
+    {
+        public string ReturnSuccess()
+        {
+            return "Success";
+        }
+
+        public DecodedDNA DecodeDNA(string DNA)
+        {
+            throw new InvalidDNAException();
+        }
+    }
 }
