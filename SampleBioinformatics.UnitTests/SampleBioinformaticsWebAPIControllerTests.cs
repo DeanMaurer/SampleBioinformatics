@@ -10,14 +10,6 @@ namespace SampleBioinformatics.UnitTests
         SampleBioinformaticsController _controller = new SampleBioinformaticsController(new MockSampleBioinformaticsLogic());
 
         [Test, Category("unit")]
-        public void GetSuccessReturnsSuccess()
-        {
-            var result = _controller.GetSuccess();
-
-            Assert.AreEqual("Success", result);
-        }
-
-        [Test, Category("unit")]
         public void GetDNADecodedReturnsJson()
         {
             var result = _controller.GetDNADecoded("AAA");

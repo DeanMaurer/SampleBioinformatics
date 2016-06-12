@@ -24,11 +24,6 @@ namespace SampleBioinformatics.Web.Controllers
             _sBio = sBio;
         }
 
-        public string GetSuccess()
-        {
-            return _sBio.ReturnSuccess();
-        }
-
         public string GetDNADecoded(string DNA)
         {
             try

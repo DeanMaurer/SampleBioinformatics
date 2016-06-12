@@ -6,11 +6,6 @@ namespace SampleBioinformatics.BusinessLogic
 {
     public class Logic : ISampleBioinformatics
     {
-        public string ReturnSuccess()
-        {
-            return "Success";
-        }
-
         public DecodedDNA DecodeDNA(string DNA)
         {
             DNA = DNA.ToUpper();

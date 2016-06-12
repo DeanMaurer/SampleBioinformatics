@@ -9,11 +9,11 @@ namespace SampleBioinformatics.Interface
 
     public interface ISampleBioinformatics
     {
-        string ReturnSuccess();
-
         DecodedDNA DecodeDNA(string DNA);
     }
 
+    // This object is immutable so that I don't have to think about the possibility of
+    // something changing it when it shouldn't be changed.
     public class DecodedDNA
     {
         public string DNA { get; private set; }

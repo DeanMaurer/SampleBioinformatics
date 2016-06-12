@@ -34,21 +34,6 @@ namespace SampleBioinformatics.IntegrationTests
         }
 
         [Test, Category("integration")]
-        public void SuccessButtonDisplaysSuccess()
-        {
-            string expectedResponse = "Success";
-            var successButton = _driver.FindElement(By.Id("success"));
-            successButton.Click();
-
-            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until(drv => drv.FindElement(By.Id("response")).Text == expectedResponse);
-
-            var response = _driver.FindElement(By.Id("response"));
-
-            Assert.AreEqual(expectedResponse, response.Text);
-        }
-
-        [Test, Category("integration")]
         public void DecodedStringAAADisplaysAsExpected()
         {
             string expectedResponse = "{\"DNA\":\"AAA\",\"mRNA\":\"UUU\",\"tRNA\":\"AAA\",\"AminoAcids\":[\"Lysine\"]}";
