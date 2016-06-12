@@ -137,14 +137,6 @@ namespace SampleBioinformatics.UnitTests
         }
 
         [Test, Category("unit")]
-        public void MethionineEncodedProperly()
-        {
-            var ATG = _sbLogic.DecodeDNA("ATG");
-
-            Assert.AreEqual("Methionine", ATG.AminoAcids.Single());
-        }
-
-        [Test, Category("unit")]
         public void PhenylalanineEncodedProperly()
         {
             var TTT = _sbLogic.DecodeDNA("TTT");
@@ -262,6 +254,22 @@ namespace SampleBioinformatics.UnitTests
             Assert.AreEqual("Stop", TAA.AminoAcids.Single());
             Assert.AreEqual("Stop", TGA.AminoAcids.Single());
             Assert.AreEqual("Stop", TAG.AminoAcids.Single());
+        }
+
+        [Test, Category("unit")]
+        public void ATGEncodesStartIfFirst()
+        {
+            var ATG = _sbLogic.DecodeDNA("ATG");
+
+            Assert.AreEqual("Start", ATG.AminoAcids.Single());
+        }
+
+        [Test, Category("unit")]
+        public void MethionineEncodedProperly()
+        {
+            var ATG = _sbLogic.DecodeDNA("ATGATG");
+
+            Assert.AreEqual("Methionine", ATG.AminoAcids.ElementAt(1));
         }
     }
 }

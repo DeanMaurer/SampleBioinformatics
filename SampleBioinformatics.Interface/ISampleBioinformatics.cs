@@ -1,9 +1,12 @@
-﻿
-
+﻿using System;
 using System.Collections.Generic;
 
 namespace SampleBioinformatics.Interface
 {
+    public class InvalidDNAException : Exception
+    {
+    }
+
     public interface ISampleBioinformatics
     {
         string ReturnSuccess();

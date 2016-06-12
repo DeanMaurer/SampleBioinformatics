@@ -11,13 +11,6 @@ namespace SampleBioinformatics.UnitTests
         Logic _sbLogic = new Logic();
 
         [Test, Category("unit")]
-        public void CanReturnSuccess()
-        {
-            string success = _sbLogic.ReturnSuccess();
-            Assert.AreEqual("Success", success);
-        }
-
-        [Test, Category("unit")]
         public void CanDecodeAAALysine()
         {
             var result = _sbLogic.DecodeDNA("AAA");
@@ -71,6 +64,38 @@ namespace SampleBioinformatics.UnitTests
             Assert.AreEqual("UUG", result.mRNA);
             Assert.AreEqual("AAC", result.tRNA);
             Assert.AreEqual(expectedAminoAcids, result.AminoAcids);
+        }
+
+        [Test, Category("unit")]
+        public void DnaMustBeModThree()
+        {
+            bool caughtInvalidDNAException = false;
+            try
+            {
+                var result = _sbLogic.DecodeDNA("ATCG");
+            }
+            catch(InvalidDNAException)
+            {
+                caughtInvalidDNAException = true;
+            }
+
+            Assert.IsTrue(caughtInvalidDNAException, "String length needs to be mod 3");
+        }
+
+        [Test, Category("unit")]
+        public void DnaMustConsistOfValidBases()
+        {
+            bool caughtInvalidDNAException = false;
+            try
+            {
+                var result = _sbLogic.DecodeDNA("NOTDNA");
+            }
+            catch (InvalidDNAException)
+            {
+                caughtInvalidDNAException = true;
+            }
+
+            Assert.IsTrue(caughtInvalidDNAException, "Only A T C G are valid bases");
         }
     }
 }
