@@ -20,7 +20,7 @@ namespace SampleBioinformatics.UnitTests
         [Test, Category("unit")]
         public void CanDecodeAAALysine()
         {
-            var result = _sbLogic.DecodeDNAString("AAA");
+            var result = _sbLogic.DecodeDNA("AAA");
 
             var expectedAminoAcids = new List<string>();
             expectedAminoAcids.Add("Lysine");
@@ -34,7 +34,7 @@ namespace SampleBioinformatics.UnitTests
         [Test, Category("unit")]
         public void CanDecodeAAGLysine()
         {
-            var result = _sbLogic.DecodeDNAString("AAG");
+            var result = _sbLogic.DecodeDNA("AAG");
 
             var expectedAminoAcids = new List<string>();
             expectedAminoAcids.Add("Lysine");

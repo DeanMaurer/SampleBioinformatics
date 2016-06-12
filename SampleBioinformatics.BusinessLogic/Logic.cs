@@ -11,7 +11,7 @@ namespace SampleBioinformatics.BusinessLogic
             return "Success";
         }
 
-        public DecodedDNA DecodeDNAString(string DNA)
+        public DecodedDNA DecodeDNA(string DNA)
         {
             string mRNA = GetmRNAFromDNA(DNA);
             string tRNA = GettRNAFromDNA(DNA);

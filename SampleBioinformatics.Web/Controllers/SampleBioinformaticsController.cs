@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using SampleBioinformatics.BusinessLogic;
 using SampleBioinformatics.Interface;
+using Newtonsoft.Json;
 
 namespace SampleBioinformatics.Web.Controllers
 {
@@ -26,6 +27,12 @@ namespace SampleBioinformatics.Web.Controllers
         public string GetSuccess()
         {
             return _sBio.ReturnSuccess();
+        }
+
+        public string GetDNADecoded(string DNA)
+        {
+            var decodedDNA = _sBio.DecodeDNA(DNA);
+            return JsonConvert.SerializeObject(decodedDNA);
         }
     }
 }
