@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SampleBioinformatics.UnitTests
 {
-    public class MockSampleBioinformaticsLogic : ISampleBioinformatics
+    public class MockBusinessLogic : ISampleBioinformatics
     {
         public string ReturnSuccess()
         {

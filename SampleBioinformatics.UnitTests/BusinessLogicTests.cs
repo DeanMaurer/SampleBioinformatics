@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace SampleBioinformatics.UnitTests
 {
     [TestFixture]
-    class SampleBioinformaticsBusinessLogicTests
+    class BusinessLogicTests
     {
         Logic _sbLogic = new Logic();
 

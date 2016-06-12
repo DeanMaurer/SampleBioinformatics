@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace SampleBioinformatics.UnitTests
 {
-    class SampleBioinformaticsWebAPIControllerTests
+    class WebAPIControllerTests
     {
-        SampleBioinformaticsController _controller = new SampleBioinformaticsController(new MockSampleBioinformaticsLogic());
+        SampleBioinformaticsController _controller = new SampleBioinformaticsController(new MockBusinessLogic());
 
         [Test, Category("unit")]
         public void GetDNADecodedReturnsJson()
