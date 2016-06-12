@@ -3,7 +3,7 @@ using SampleBioinformatics.Web.Controllers;
 
 namespace SampleBioinformatics.UnitTests
 {
-    class SampleBioinformaticsControllerTests
+    class SampleBioinformaticsWebAPIControllerTests
     {
         [Test, Category("unit")]
         public void GetSuccessReturnsSuccess()

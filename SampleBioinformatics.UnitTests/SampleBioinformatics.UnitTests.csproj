@@ -58,7 +58,7 @@
     <Compile Include="MockSampleBioinformaticsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleBioinformaticsBusinessLogicTests.cs" />
-    <Compile Include="SampleBioinformaticsControllerTests.cs" />
+    <Compile Include="SampleBioinformaticsWebAPIControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

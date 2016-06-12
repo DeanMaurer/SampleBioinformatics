@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SampleBioinformatics.BusinessLogic;
+using SampleBioinformatics.Interface;
 using System.Collections.Generic;
 
 namespace SampleBioinformatics.UnitTests
@@ -17,14 +18,31 @@ namespace SampleBioinformatics.UnitTests
         }
 
         [Test, Category("unit")]
-        public void CanDecodeEmptyString()
+        public void CanDecodeAAALysine()
         {
-            var result = _sbLogic.DecodeDNAString("");
+            var result = _sbLogic.DecodeDNAString("AAA");
 
-            Assert.AreEqual("", result.DNA);
-            Assert.AreEqual("", result.mRNA);
-            Assert.AreEqual("", result.tRNA);
-            Assert.AreEqual(new List<string>(), result.AminoAcids);
+            var expectedAminoAcids = new List<string>();
+            expectedAminoAcids.Add("Lysine");
+
+            Assert.AreEqual("AAA", result.DNA);
+            Assert.AreEqual("UUU", result.mRNA);
+            Assert.AreEqual("AAA", result.tRNA);
+            Assert.AreEqual(expectedAminoAcids, result.AminoAcids);
+        }
+
+        [Test, Category("unit")]
+        public void CanDecodeAAGLysine()
+        {
+            var result = _sbLogic.DecodeDNAString("AAG");
+
+            var expectedAminoAcids = new List<string>();
+            expectedAminoAcids.Add("Lysine");
+
+            Assert.AreEqual("AAG", result.DNA);
+            Assert.AreEqual("UUC", result.mRNA);
+            Assert.AreEqual("AAG", result.tRNA);
+            Assert.AreEqual(expectedAminoAcids, result.AminoAcids);
         }
     }
 }
