@@ -26,6 +26,7 @@ namespace SampleBioinformatics.Web.Controllers
 
         public string GetSuccess()
         {
+            this.ToString();
             return _sBio.ReturnSuccess();
         }
 

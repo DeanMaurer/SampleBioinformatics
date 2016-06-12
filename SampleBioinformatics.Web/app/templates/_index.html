@@ -2,4 +2,7 @@
     <h2>Sample Bioinformatics Home Page</h2>
     <button ng-click="index.success()" type="submit" class="btn" id="success">Click to Succeed</button>
     <p id="response">{{index.response}}</p>
+    <p>DNA: <input type="text" name="DNA" ng-model="index.dna" /></p>
+    <button ng-click="index.decodeDNA()" type="submit" class="btn" id="decodeBtn">Click to Decode DNA</button>
+    <p id="decodedInfo">{{index.decodedInfo}}</p>
 </div>

@@ -47,5 +47,24 @@ namespace SampleBioinformatics.IntegrationTests
 
             Assert.AreEqual(expectedResponse, response.Text);
         }
+
+        [Test, Category("integration")]
+        public void DecodedStringAAADisplaysAsExpected()
+        {
+            string expectedResponse = "{\"DNA\":\"AAA\",\"mRNA\":\"UUU\",\"tRNA\":\"AAA\",\"AminoAcids\":[\"Lysine\"]}";
+
+            var dnaTextBox = _driver.FindElement(By.Name("DNA"));
+            dnaTextBox.SendKeys("AAA");
+
+            var decodeButton = _driver.FindElement(By.Id("decodeBtn"));
+            decodeButton.Click();
+
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            wait.Until(drv => drv.FindElement(By.Id("decodedInfo")).Text == expectedResponse);
+
+            var response = _driver.FindElement(By.Id("decodedInfo"));
+
+            Assert.AreEqual(expectedResponse, response.Text);
+        }
     }
 }
