@@ -1,15 +1,19 @@
-﻿<div ui-view class="dashboard">
-    <h2 id="title">Sample Bioinformatics Home Page</h2>
-    <p>DNA: <input type="text" name="DNA" ng-model="index.dna" /></p>
-    <button ng-click="index.decodeDNA()" type="submit" class="btn" id="decodeBtn">Click to Decode DNA</button>
-
-    <div id="results" ng-show="index.showResults">
-        <div id="mRNA">mRNA: {{index.mRNA}}</div>
-        <div id="tRNA">tRNA: {{index.tRNA}}</div>
-        <div id="aminoAcids">
-            <p>Amino Acids:</p>
-            <ul>
-                <li id="acid" ng-repeat="acid in index.aminoAcids">{{acid}}</li>
+﻿<div ui-view>
+    <div>
+        <div class="form-group">
+            <label class="col-md-2 control-label text-right" for="dna">DNA</label>
+            <div class="col-md-10">
+                <input id="dna" class="form-control" name="DNA" ng-model="index.dna" type="text">
+            </div>
+        </div>
+        <div class="col-md-offset-2 col-md-10" style="padding-top: 2px">
+            <button ng-click="index.decodeDNA()" type="submit" class="btn btn-default" id="decodeBtn">Click to Decode DNA</button>
+        </div>
+        <div id="results" ng-show="index.showResults" class="col-md-offset-2 col-md-5" style="padding-top: 2px">
+            <ul class="list-group">
+                <li class="list-group-item" id="mRNA">mRNA: {{index.mRNA}}</li>
+                <li class="list-group-item" id="tRNA">tRNA: {{index.tRNA}}</li>
+                <li class="list-group-item" id="acid" ng-repeat="acid in index.aminoAcids track by $index">Amino Acid {{$index+1}}: {{acid}}</li>
             </ul>
         </div>
     </div>

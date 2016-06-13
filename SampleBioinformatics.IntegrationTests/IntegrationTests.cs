@@ -30,8 +30,8 @@ namespace SampleBioinformatics.IntegrationTests
         [Test, Category("integration")]
         public void PageHeaderExists()
         {
-            var header = _driver.FindElement(By.TagName("h2"));
-            Assert.AreEqual("Sample Bioinformatics Home Page", header.Text);
+            var header = _driver.FindElement(By.Id("title"));
+            Assert.AreEqual("DNA Decoder", header.Text);
         }
 
         [Test, Category("integration")]
@@ -39,7 +39,7 @@ namespace SampleBioinformatics.IntegrationTests
         {
             string mRNAExpected = "mRNA: UUU";
             string tRNAExpected = "tRNA: AAA";
-            string aminoAcidExpected = "Lysine";
+            string aminoAcidExpected = "Amino Acid 1: Lysine";
 
             // Enter a DNA string
             var dnaTextBox = _driver.FindElement(By.Name("DNA"));

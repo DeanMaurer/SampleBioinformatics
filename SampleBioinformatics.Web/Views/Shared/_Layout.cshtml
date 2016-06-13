@@ -9,10 +9,26 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body ng-app="bio">
-    <main>
-        @RenderBody()
-    </main>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <h2 class="navbar-text" id="title">DNA Decoder</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" style="padding-top: 50px">
+        <div class="row">
+            <div class="col-md-8">
+                <div ng-app="bio">
+                    <main>
+                        @RenderBody()
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
