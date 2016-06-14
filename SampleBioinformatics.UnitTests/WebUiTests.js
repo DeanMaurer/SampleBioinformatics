@@ -42,12 +42,26 @@ describe("UI", function () {
     it("should show the results only when they exist", inject(function () {
         requestHandler.respond(200, Object({ DNA: "AAA", mRNA: "UUU", tRNA: "AAA", AminoAcids: ["Lysine"] }));
 
-        expect(index.showResults).toEqual(false);
+        expect(index.showResults).toBeUndefined();
 
         index.dna = "AAA";
         index.decodeDNA();
         $httpBackend.flush();
 
         expect(index.showResults).toEqual(true);
+    }));
+
+    it("should tell the user when the string entered is invalid", inject(function () {
+        requestHandler.respond(200, Object({ Error: "The DNA provided is not valid." }));
+
+        expect(index.error).toBeUndefined();
+        expect(index.errorMessage).toBeUndefined();
+
+        index.dna = "AA";
+        index.decodeDNA();
+        $httpBackend.flush();
+
+        expect(index.error).toEqual(true);
+        expect(index.errorMessage).toEqual("The DNA provided is not valid.");
     }));
 });

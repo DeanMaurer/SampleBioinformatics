@@ -35,6 +35,26 @@ namespace SampleBioinformatics.IntegrationTests
         }
 
         [Test, Category("integration")]
+        public void ErrorDisplaysAsExpected()
+        {
+            // Enter a DNA string
+            var dnaTextBox = _driver.FindElement(By.Name("DNA"));
+            dnaTextBox.SendKeys("AA");
+
+            // Submit the query
+            var decodeButton = _driver.FindElement(By.Id("decodeBtn"));
+            decodeButton.Click();
+
+            // Wait for a response
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
+            wait.Until(drv => drv.FindElement(By.Id("error")).Text != "");
+
+            var response = _driver.FindElement(By.Id("error"));
+
+            Assert.AreEqual("The DNA provided is not valid.", response.Text);
+        }
+
+        [Test, Category("integration")]
         public void DecodedStringAAADisplaysAsExpected()
         {
             string mRNAExpected = "mRNA: UUU";
