@@ -18,7 +18,14 @@ namespace SampleBioinformatics.ConsoleApp
 
         internal DecodedDNA Decode(string dna)
         {
-            return _bio.DecodeDNA(dna);
+            try
+            {
+                return _bio.DecodeDNA(dna);
+            }
+            catch(InvalidDNAException)
+            {
+                return new DecodedDNA("", "", "", new List<string>());
+            }
         }
     }
 }
