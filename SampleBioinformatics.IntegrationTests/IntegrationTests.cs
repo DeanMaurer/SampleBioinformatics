@@ -10,7 +10,7 @@ namespace SampleBioinformatics.IntegrationTests
     public class IntegrationTests
     {
         private IWebDriver _driver;
-        private string _url = "http://samplebioinformatics20160605063635.azurewebsites.net/";
+        private string _url = "http://samplebioinformaticsweb20160719084954.azurewebsites.net/";
 
         [SetUp]
         protected void SetUp()
